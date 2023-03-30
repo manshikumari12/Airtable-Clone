@@ -1,0 +1,82 @@
+body{
+    background:url("./c.avif") 
+     no-repeat center center fixed;
+     background-size: cover;
+  
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #failed{
+    background-color: rgb(250, 105, 2);
+    width: 400px;
+    border-radius: 25px;
+   color: white;
+   border: none;
+  }
+  #failed>h2{
+    color: white;
+  }
+  #createAcc{
+    background-color: #2874f0;
+    color: white;
+    padding: 10px 25px ;
+    border-radius: 25px;
+    border: none;
+  }
+  
+  form {
+    width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  

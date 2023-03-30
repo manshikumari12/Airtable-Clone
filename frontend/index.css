@@ -63,6 +63,7 @@
        
         #left>div>button{
             padding: 6px;
+            
             border: none;
             background-color: white;
             color: black;
@@ -85,6 +86,7 @@
             padding-right: 140px;
         }
         #btn1{
+            
             padding: 9px;
             background-color: white;
             margin-left: 40px;
@@ -344,10 +346,17 @@
      #body6{
         display: flex;
         background-color: rgb(251, 251, 229);
+        justify-content: space-around;
+     }
+     h5{
+        font-size: 50px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        padding-left: 120px;
      }
 
      #special4{
-        margin-top: 2px;
+        margin-top: 30px;
         margin-left: -4px;
         font-size: 24px;
         border: none;
@@ -363,3 +372,160 @@
         cursor: pointer;
 
     }
+/* ==================body7==================== */
+
+#body7{
+    display: flex;
+    background-color: rgb(251, 251, 229);
+}
+#body7>img{
+  
+    width: 30%;
+    padding-left: 400px;
+
+}
+#white{
+    background-color: #f2f4f7;
+    padding: 20px;
+}
+#white>p{
+    font-size: 40px;
+}
+#special5{
+    margin-top: 30px;
+    margin-left: -4px;
+    font-size: 24px;
+    border: none;
+  
+    cursor: pointer;
+    
+    color:#0768f8;
+    padding-bottom: 100px;
+  
+}
+#special5:hover{
+    color: navy;
+    cursor: pointer;
+
+}
+/* =================body8=============== */
+#body8{
+    background-color:f2f4f7 ;
+    padding-bottom: 100px;
+}
+#body8>p{
+    font-size: 60px;
+    text-align: center;
+    padding-top: 50px;
+
+}
+
+
+ #btn5{
+    padding: 10px;
+    margin-top: 50px;
+    position: relative;
+    background-color:#0768f8;
+    color: white;
+     border: none;
+    margin-left: 840px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: larger;
+  
+   
+}
+#btn5:hover{
+    padding: 6px;
+    background-color:#015be2;
+    
+  
+
+
+} 
+/* =====================footer=========================== */
+
+#footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#footer1{
+margin-top: 70px;
+
+  
+}
+
+#footer1>button{
+    background-color: #f2f4f7;
+    font-size: 20px;
+   border: none;
+    margin-left: 20px;
+      
+    }
+/* ==============fotter2=================== */
+
+.footer2{
+      
+    display: flex;
+    gap:70px;
+    padding: 25px;
+    margin-left: 90px;
+    text-align: center;
+    justify-content: space-around;
+    border: none;
+}
+
+
+
+
+#foot {
+    display: inline-block;
+    position: relative;
+    color: #111212;
+    border: none;
+ 
+    margin-top:16px;
+    
+    
+    }
+    
+    #foot::before{
+    content: '';
+    position: absolute;
+    width: 97%;
+    transform: scaleX(0);
+    height: 0.8px;
+    bottom: 0;
+    border: none;
+    background-color: #020202;
+    
+    }
+    
+    #foot:hover::before {
+    transform: scaleX(1);
+    
+    }
+
+    /* ==============footer3============ */
+    #footer3{
+        /* background-color: #eeeded; */
+        background-color: #f2f4f7;
+        display: flex;
+        justify-content: space-around;
+    }
+    #para2{
+       
+        display: flex;
+        margin-top: 20px;
+        
+        
+    }
+    #para2>p{
+       
+       margin-left: 20px;
+       
+        
+    }
+
