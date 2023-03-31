@@ -8,7 +8,6 @@
             justify-content: center;
             width: 100%;
               height: 50px;
-            /* background-color: rgb(231, 254, 254); */
             background-color: rgb(239, 252, 252);
         
         }
@@ -27,12 +26,11 @@
             
         }
 
-        /* ==========2nd======================================== */
+        /* =============================2nd========================== */
         #cont1{
             width: 100%;
             padding-left: 50px;
              position: fixed;
-            /* border: 1px solid red; */
             background-color:white;
             margin-top: 50px;
            display: flex;
@@ -44,7 +42,6 @@
         }
         #img1{
             padding:0px;
-            /* border: 1px solid red; */
             width:3%;
         
             margin-bottom: 39px; 
@@ -63,6 +60,7 @@
        
         #left>div>button{
             padding: 6px;
+            
             border: none;
             background-color: white;
             color: black;
@@ -85,6 +83,7 @@
             padding-right: 140px;
         }
         #btn1{
+            
             padding: 9px;
             background-color: white;
             margin-left: 40px;
@@ -137,27 +136,20 @@
              margin-left: 40px;
         }
       
-       /* ===========================body==================== */
+       /* =============================body========================== */
 
        #body{
-     
-        /* border: 1px solid red; */
-        display: flex;
+         display: flex;
         width:100%;
         height: 100%;
         background-color: rgb(239, 252, 252);
         column-gap: 10px;
-
-       }
+      }
        #body1{
-     
-        /* border: 1px solid red; */
         display: flex;
         margin-left: 150px;
         width:40%;
         height: 50%;
-        /* background-color: rgb(231, 254, 254); */
-
        }
        #body1>p{
         margin-top: 700px;
@@ -165,9 +157,7 @@
         font-size: 30px;
         font-weight: bold;
         color: rgb(36, 36, 36);
-       
-
-       }
+        }
        h2{
         margin-top: 350px;
         font-size: 70px;
@@ -217,13 +207,11 @@
         padding-bottom: 100px;
        }
 
-       /* ===========================body3========================== */
+       /* ===========================body3=========================== */
 
       
        #body3{
-     
-      
-    padding-top: 100px;
+        padding-top: 100px;
         display: flex;
         width:100%;
         height: 100%;
@@ -232,26 +220,21 @@
        }
 
     #left1{
-      
-        padding-left: 200px;
+       padding-left: 200px;
         padding-right: 200px;
-
         padding-top: 300px;
     }
     
     #left1>h4{
         font-size: 60px;
-      
-     
-    }
+       }
     #left1>p{
         margin-top: 30px;
         margin-left: -4px;
         font-size: 24px;
         color: rgb(36, 36, 36);
         padding-bottom: 30px;
-     
-    }
+     }
     #special2{
         margin-top: 2px;
         margin-left: -4px;
@@ -259,23 +242,18 @@
         border: none;
         background-color: rgb(254, 244, 244);
         cursor: pointer;
-        
         color:#0768f8;
         padding-bottom: 100px;
-      
-    }
+      }
     #special2:hover{
         color: navy;
         cursor: pointer;
+     }
 
-    }
-
-    /* =================================body4============== */
+    /* ===========================body4============================== */
     
     #body4{
-     
-    
-    padding-top: 100px;
+       padding-top: 100px;
         display: flex;
         width:100%;
         height: 100%;
@@ -287,27 +265,21 @@
 
        }
     #right3{
-     
         padding-left: 100px;
-     
         padding-right: 200px;
-
         padding-top: 300px;
     }
     
     #right3>h4{
         font-size: 60px;
-      
-     
-    }
+       }
     #right3>p{
         margin-top: 30px;
         margin-left: -4px;
         font-size: 24px;
         color: rgb(36, 36, 36);
         padding-bottom: 30px;
-     
-    }
+      }
     #special3{
         margin-top: 2px;
         margin-left: -4px;
@@ -315,7 +287,6 @@
         border: none;
         background-color: rgb(254, 244, 244);
         cursor: pointer;
-        
         color:#0768f8;
         padding-bottom: 100px;
       
@@ -326,28 +297,33 @@
 
     }
 
-     /* ======================body5================== */
+     /* ======================body5================================== */
      #body5{
-        /* border: 1px solid red; */
         width: 100%;
         height: 100%;
         background-color: rgb(254, 244, 244);
      }
      #body5>img{
-        /* border: 1px solid red; */
         width: 70%;
         padding-left: 250px;
-        /* height: 200px; */
+      
      }
 
-     /* ===============body6============================== */
+     /* ===============body6========================================= */
      #body6{
         display: flex;
         background-color: rgb(251, 251, 229);
+        justify-content: space-around;
+     }
+     h5{
+        font-size: 50px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        padding-left: 120px;
      }
 
      #special4{
-        margin-top: 2px;
+        margin-top: 30px;
         margin-left: -4px;
         font-size: 24px;
         border: none;
@@ -363,3 +339,139 @@
         cursor: pointer;
 
     }
+/* ==================body7=========================================== */
+
+#body7{
+    display: flex;
+    background-color: rgb(251, 251, 229);
+}
+#body7>img{
+  
+    width: 30%;
+    padding-left: 400px;
+
+}
+#white{
+    background-color: #f2f4f7;
+    padding: 20px;
+}
+#white>p{
+    font-size: 40px;
+}
+#special5{
+    margin-top: 30px;
+    margin-left: -4px;
+    font-size: 24px;
+    border: none;
+  
+    cursor: pointer;
+    
+    color:#0768f8;
+    padding-bottom: 100px;
+  
+}
+#special5:hover{
+    color: navy;
+    cursor: pointer;
+
+}
+/* =================body8============================================ */
+#body8{
+    background-color:f2f4f7 ;
+    padding-bottom: 100px;
+}
+#body8>p{
+    font-size: 60px;
+    text-align: center;
+    padding-top: 50px;
+
+}
+
+
+ #btn5{
+    padding: 10px;
+    margin-top: 50px;
+    position: relative;
+    background-color:#0768f8;
+    color: white;
+     border: none;
+    margin-left: 840px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: larger;
+  
+   
+}
+#btn5:hover{
+    padding: 6px;
+    background-color:#015be2;
+} 
+/* =====================footer======================================= */
+
+#footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#footer1{
+margin-top: 70px;
+}
+
+#footer1>button{
+    background-color: #f2f4f7;
+    font-size: 20px;
+   border: none;
+    margin-left: 20px;
+      
+    }
+/* ==============fotter2============================================= */
+
+.footer2{
+      
+    display: flex;
+    gap:70px;
+    padding: 25px;
+    margin-left: 90px;
+    text-align: center;
+    justify-content: space-around;
+    border: none;
+}
+
+#foot {
+    display: inline-block;
+    position: relative;
+    color: #111212;
+    border: none;
+    margin-top:16px;
+     }
+    
+    #foot::before{
+    content: '';
+    position: absolute;
+    width: 97%;
+    transform: scaleX(0);
+    height: 0.8px;
+    bottom: 0;
+    border: none;
+    background-color: #020202;
+    }
+    
+    #foot:hover::before {
+    transform: scaleX(1);
+    }
+
+    /* ==============footer3=======================================*/
+    #footer3{
+        background-color: #f2f4f7;
+        display: flex;
+        justify-content: space-around;
+    }
+    #para2{
+        display: flex;
+        margin-top: 20px;
+        }
+    #para2>p{
+        margin-left: 20px;
+       }
+
