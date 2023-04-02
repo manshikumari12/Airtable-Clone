@@ -134,7 +134,7 @@
     text-align: center;
     
   }
-  #child1>button{
+  #btn4{
     padding: 7px;
     border-radius: 8px;
     border: none;
@@ -144,3 +144,88 @@
     margin-left: 500px;
     margin-top: 30px;
   }
+  #btn4:hover{
+    padding: 7px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(7, 116, 225);
+    color: #e5e5e5;
+    font-size: 20px;
+    margin-left: 500px;
+    margin-top: 30px;
+  }
+
+
+
+
+
+  #footer{
+    display: flex;
+    justify-content: space-around;
+    /* border: 1px solid red; */
+    margin-top: 40px;
+}
+
+
+#footer1{
+margin-top: 70px;
+
+}
+
+#footer1>button{
+    background-color: #f2f4f7;
+    font-size: 20px;
+   border: none;
+    margin-left: 20px;
+      
+    }
+/* ==============fotter2============================================= */
+
+.footer2{
+      
+    display: flex;
+    gap:70px;
+    padding: 25px;
+    margin-left: 90px;
+    text-align: center;
+    justify-content: space-around;
+    border: none;
+}
+
+#foot {
+    display: inline-block;
+    position: relative;
+    color: #111212;
+    border: none;
+    margin-top:16px;
+     }
+    
+    #foot::before{
+    content: '';
+    position: absolute;
+    width: 97%;
+    transform: scaleX(0);
+    height: 0.8px;
+    bottom: 0;
+    border: none;
+    background-color: #020202;
+    }
+    
+    #foot:hover::before {
+    transform: scaleX(1);
+    }
+
+    /* ==============footer3=======================================*/
+    #footer3{
+        background-color: #f2f4f7;
+        display: flex;
+        justify-content: space-around;
+    }
+    #para2{
+        display: flex;
+        margin-top: 20px;
+        }
+    #para2>p{
+        margin-left: 20px;
+       }
+

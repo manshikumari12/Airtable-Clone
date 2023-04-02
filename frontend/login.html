@@ -10,7 +10,7 @@
   <body>
     <div class="form-container" id="main">
       <div id="wrong_credentials"></div>
-      <form id="login-form">
+      <form id="in">
         <h2>Login</h2>
         <div class="form-group">
           <label for="email">Email</label>
@@ -30,3 +30,46 @@
     
   </body>
 </html>
+ <script>
+  document.getElementById("in").addEventListener("submit", (e) => {
+    e.preventDefault();
+    let email=document.getElementById("lemail").value
+    let password=document.getElementById("lpassword").value
+   
+    let obj={
+        email:email,
+        password:password
+        
+    }
+    console.log(obj)
+   
+
+fetch("http://localhost:1111/user/login",{
+    method:'POST',
+    headers:{
+        "Content-type":"application/json"
+    },
+    body:JSON.stringify(obj)
+})
+.then((res)=>{
+    return res.json();
+})
+.then((res)=>{
+    console.log(res);
+    
+    localStorage.setItem("token",res.token);
+    window.location.href = "./afterlogin.html";
+      //  $('.signup, .signin, #pop').hide();
+
+    
+
+})
+.catch((err)=>{
+    document.getElementById("alertinh").innerText=`Wrong Credential !`;
+    document.getElementById("alertinp").innerText=`Please provide correct user details.`;
+
+    
+console.log(err);
+})
+})
+</script> 

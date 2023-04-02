@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="form-container">
-        <form id="signup-form">
+        <form id="up">
           <h2>Sign Up</h2>
           <div class="form-group">
             <label for="name">Name</label>
@@ -24,15 +24,60 @@
             <label for="password">Password</label>
             <input type="password" id="spassword" name="password" required>
           </div>
-          <div class="form-group">
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="sconfirm-password" name="confirm-password" required>
-          </div>
+
           <button type="submit">Submit</button> <br>
-          <button id="createAcc">Already have an Account </button>
+          <a href="">Already have an Account</a>
+     
         </form>
         
       </div>
       
 </body>
 </html>
+<script>
+  document.getElementById("up").addEventListener("submit", (e) => {
+     e.preventDefault();
+     let name=document.getElementById("sname").value
+   
+     let email=document.getElementById("semail").value
+     let password=document.getElementById("spassword").value
+       
+ 
+ 
+ 
+     let obj={
+         name:name,
+  
+         email:email,
+         password:password,
+      
+         
+     }
+     console.log(obj)
+    
+ 
+ fetch("https://uninterested-knickers-tick.cyclic.app//user/register",{
+     method:'POST',
+     headers:{
+         "Content-type":"application/json"
+     },
+     body:JSON.stringify(obj)
+ })
+ .then((res)=>{
+ 
+     return res.json();
+ })
+ .then((data)=>{
+     console.log(data);
+     alert("Registration done !")
+     window.location.href = "./login.html";
+ 
+ })
+ .catch((err)=>{
+    
+ console.log(err);
+ })
+ 
+ })
+ //hukjbujbjkb
+</script>
