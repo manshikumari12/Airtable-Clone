@@ -1,4 +1,4 @@
-*{
+ *{
     margin: 0px;
     padding: 0%;
     }
@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     background-color: rgb(189, 11, 248);
-    position: fixed;
+    /* position: fixed; */
 }
 #parent>div{
     display: flex;
@@ -39,7 +39,7 @@ h1{
     border: none;
     background-color: rgb(189, 11, 248);
 
-    /* background-color: rgb(81, 4, 136); */
+
 }
 
 #btn:hover{
@@ -47,3 +47,122 @@ h1{
 
     background-color: rgb(81, 4, 136);
 }
+/* =======================parent1========================= */
+#parent1{
+    margin-top: 4px;
+
+
+    display: flex;
+   
+  
+}
+#parent2{
+    width:30%;
+    height: 760px;
+    background-color: rgb(189, 11, 248);
+    color: white;
+    padding-left: 20px;
+    
+
+}
+h2{
+    margin-top: 40px;
+    padding-left: 20px;
+}
+h3{
+    margin-top: 20px;
+    padding-left: 20px;
+
+}
+p{
+    padding-left: 20px;
+
+}
+
+#parent3{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width:70%
+
+}
+
+#par2{
+    margin-left: 10px;  
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    color: white;
+
+   
+}
+
+#par3{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-left: 10px; 
+
+    margin-bottom: 30px;
+    color: white;
+
+   
+}
+
+#par4{
+    margin-top: 20px;
+    margin-left: 20px;
+    color: white;
+}
+#par4{
+    font-size: 20px;
+    color: white;
+}
+#par4>input{
+
+    margin-top: 30px;
+    width: 500px;
+    background-color: rgb(135, 8, 177);
+    border: none;
+    color: white;
+
+}
+#par5{
+    margin-left: 20px;  
+    color: white;
+}
+#par5>button{
+    background-color: rgb(131, 5, 173);  
+    color: white;
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    border: none;
+    
+}
+#par5>p{
+    margin-top: 30px;
+    font-size: 20px;
+    color: white;
+}
+/* ===================================== */
+
+
+
+#child{
+    display: flex;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    font-size: 30px;
+   padding-left: 20px;
+   padding-bottom: 50px;
+}
+
+#box{
+  background-color: blanchedalmond;
+}
+#items{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+}
+

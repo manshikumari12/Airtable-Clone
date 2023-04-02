@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./base.css">
 </head>
 <body>
-    <div id="parent">
+     <div id="parent">
         <div>
             <img src="./workplace.png" alt="" id="img1">
             <h1>Untitled Base</h1>
@@ -23,14 +23,260 @@
             <button id="btn">Share</button>
             <img src="./bell.png" alt="" id="img1">
         </div>
-    </div>
+    </div> 
 
     <!-- ==============================parent1====================== -->
-    <div id="parent1">
-    <div></div>
-    <div></div>
-      <div><h2>help</h2></div>
+  
+  <div id="parent1">
+    <div id="parent2">
+ 
+        <h2> Getting started</h2> <br>
+        <h3>Import your work</h3>
+       
+        <p>Get started with Airtable right where you left off, with one of the following tools:</p>
+
+        <div id="par2">
+            <p>Google Sheets</p>
+            <p>Paste</p>
+    
+    
+        </div>
+    
+        <div id="par3">
+            <p>Excel</p>
+            <p>CSV / Other</p>
+            
+    
+        </div>
+
+        <div id="par4">
+            <h4>Check out our templates</h4><br>
+             <p>Looking for a head start? Our recommended templates will help build your base quickly.</p>
+             <input type="text" placeholder="Find another template">
+        </div>
+        <div id="par5">
+            <button>Project Tracker</button><br>
+             <button>Content Calendar</button>
+             <p>Need help? Check out our helpful resources. -> </p>
+        </div>
+     
+        
     </div>
+
+  
+
+    <div id="parent3">
+        <div id="child">
+
+            <div>
+                <p>Name</p>
+                <input type="text" placeholder="name"id="name">
+                
+                <input type="text"placeholder="name" id="name">
+                <input type="text"placeholder="name">
+                <input type="text"placeholder="name">
+                <input type="text"placeholder="name">
+
+
+
+            </div>
+            <div>
+                <p>Notes</p>
+                <input type="text" placeholder="Notes" id="notes">
+                <input type="text" placeholder="Notes">
+                <input type="text" placeholder="Notes">
+                <input type="text" placeholder="Notes">
+                <input type="text" placeholder="Notes">
+
+            </div>
+            <div>
+                <p>Assign</p>
+                <input type="text" placeholder="Assign" id="assign">
+                <input type="text" placeholder="Assign">
+                <input type="text" placeholder="Assign">
+                <input type="text" placeholder="Assign">
+                <input type="text" placeholder="Assign">
+
+            </div>
+            <div>
+                <p>Status</p>
+                <input type="text" placeholder="Status" id="status">
+                <input type="text" placeholder="Status">
+                <input type="text" placeholder="Status">
+                <input type="text" placeholder="Status">
+                <input type="text" placeholder="Status">
+
+            </div>
+            <button onclick="onAdd()">ADD</button>
+
+            
+           
+           
+       
+         
+     
+        </div>
+        <div id="items">
+       
+
+
+
+          <!-- <button onclick="deletetodo()">delete</button> -->
+        </div>
+      
+        
+    </div> 
+
+
+
+
+  </div>
     
 </body>
 </html>
+
+    <script>
+
+
+
+
+// const onAdd = () => {
+//   const payload = {
+//     name: document.getElementById("name").value,
+//     notes: document.getElementById("notes").value,
+//     assign: document.getElementById("assign").value,
+//     status: document.getElementById("status").value
+//   };
+
+//   fetch("http://localhost:1111/posts/add", {
+//     method: "POST",
+//     headers: {
+//       "Content-type": "application/json",
+//       Authorization: localStorage.getItem("token")
+//     },
+//     body: JSON.stringify(payload)
+//   })
+//     .then((res) => {
+//       return res.json();
+//     })
+//     .then((res) => {
+//       console.log(res);
+//       // create new HTML element for the new item
+//       const newItem = document.createElement("div");
+//       newItem.innerHTML = `
+//         <div >
+//             <h1>Task</h1> 
+//           <p>Name: ${res.name}</p>
+//           <p>Notes: ${res.notes}</p>
+//           <p>Assign: ${res.assign}</p>
+//           <p>Status: ${res.status}</p>
+//             <button onclick="deletetodo("${res._id}")">delete</button>
+       
+//         </div>
+//       `;
+//       // append the new item to the parent element
+//       const parent = document.getElementById("items");
+//       parent.appendChild(newItem);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
+
+// function deletetodo(_id){
+
+
+//     fetch(`http://localhost:1111/delete/${id}`, {
+//     method: "DELETE",
+//     headers: {
+//       "Content-type": "application/json",
+//       Authorization: localStorage.getItem("token")
+//     },
+   
+//   })
+
+
+
+
+// }
+
+const onAdd = () => {
+  const payload = {
+    name: document.getElementById("name").value,
+    notes: document.getElementById("notes").value,
+    assign: document.getElementById("assign").value,
+    status: document.getElementById("status").value
+  };
+
+  fetch("https://uninterested-knickers-tick.cyclic.app//posts/add", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: localStorage.getItem("token")
+    },
+    body: JSON.stringify(payload)
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res);
+    
+      const newItem = document.createElement("div");
+      newItem.innerHTML = `
+        <div >
+            <h5>Task</h5> 
+          <p>Name: ${res.name}</p>
+          <p>Notes: ${res.notes}</p>
+          <p>Assign: ${res.assign}</p>
+          <p>Status: ${res.status}</p>
+            <button onclick="deletetodo('${res._id}')">delete</button>
+       
+        </div>
+      `;
+  
+      const parent = document.getElementById("items");
+      parent.appendChild(newItem);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+function deletetodo(_id) {
+    console.log(_id)
+    try {
+        
+        fetch(`http://localhost:1111/delete/${_id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: localStorage.getItem("token")
+          },
+        })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          const itemToRemove = document.getElementById(_id);
+          itemToRemove.remove();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+ 
+
+
+
+
+
+</script>
+
+
+
+
+
