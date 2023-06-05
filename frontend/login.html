@@ -44,7 +44,7 @@
     console.log(obj)
    
 
-fetch("http://localhost:1111/user/login",{
+fetch("https://easy-tan-bluefish-tam.cyclic.app/user/login",{
     method:'POST',
     headers:{
         "Content-type":"application/json"
@@ -59,7 +59,7 @@ fetch("http://localhost:1111/user/login",{
     
     localStorage.setItem("token",res.token);
     window.location.href = "./afterlogin.html";
-      //  $('.signup, .signin, #pop').hide();
+
 
     
 

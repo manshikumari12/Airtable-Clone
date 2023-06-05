@@ -4,12 +4,10 @@ const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 const UserRouter = express.Router();
 
-UserRouter.get("/", (req, res) => {
-  res.send("ok");
-});
+
 
 UserRouter.post("/register", async (req, res) => {
-  const { name, email, gender, password, age, city , is_married } = req.body;
+  const { name, email, password } = req.body;
   const user = await UserModel.find({ email });
   if (user.length <= 0) {
     try {
@@ -20,6 +18,7 @@ UserRouter.post("/register", async (req, res) => {
           const user = new UserModel({
             name,
             email,
+          
             password: hash,
           });
           await user.save();
@@ -34,49 +33,24 @@ UserRouter.post("/register", async (req, res) => {
   }
 });
 
-// UserRouter.post("/login", async (req, res) => {
-//   const { email, password } = req.body;
-//   try {
-//     const user = await UserModel.find({ email });
-//     if (user.length > 0) {
-//       bcrypt.compare(password, user.password, (err, result) => {
-//         if (result) {
-//           const token = jwt.sign({ userId: user[0]._id }, "mannu");
-//           res.send({ msg: "Logged in ", token: token });
-//         }
-//       });
-//     } else {
-//       res.send({ msg: "Wrong credentials" });
-//     }
-//   } catch (error) {
-//     res.send({ msg: "Something went wrong", error: error.message });
-//   }
-// });
-
-UserRouter.post("/login", async ( req , res ) => {
-  const {email , password}= req.body
-
-
-  try{
-      const users = await UserModel.findOne({email})
-      if( users ){
-          bcrypt.compare(password,users.password,(err,result)=>{
-              if( result ){
-                  res.status(200).send({"msg":"Login Sucssesfull","token":jwt.sign({"userID":users._id},"mannu")})
-              }else{
-                  res.status(200).send("Login Failed")
-              }
-          })
-      }
-
-  }catch(error){
-      res.status(400).send({"msg":"pranay"})
-
-      console.log(error);
+UserRouter.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await UserModel.find({ email });
+    if (user.length > 0) {
+      bcrypt.compare(password, user[0].password, (err, result) => {
+        if (result) {
+          const token = jwt.sign({ userId: user[0]._id }, "mannu");
+          res.send({ msg: "Logged in ", token: token });
+        }
+      });
+    } else {
+      res.send({ msg: "Wrong credentials" });
+    }
+  } catch (error) {
+    res.send({ msg: "Something went wrong", error: error.message });
   }
-
-
-})
+});
 
 module.exports = {
   UserRouter,
