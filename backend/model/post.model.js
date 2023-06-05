@@ -5,7 +5,8 @@ const postSchema = mongoose.Schema({
   name : String,
 notes : String,
 assign : String,
-status: String,
+status : String,
+
 });
 
 const PostModel = mongoose.model("post", postSchema);

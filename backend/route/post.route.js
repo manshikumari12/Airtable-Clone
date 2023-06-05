@@ -23,7 +23,7 @@ const PostRouter = express.Router();
         res.send(data);
       } catch (err) {
         console.log(err);
-        res.status(500).send("Internal server error");
+        res.status(500).send(err.message);
       }
   })
   
@@ -73,21 +73,21 @@ const PostRouter = express.Router();
   
   
   PostRouter.delete("/delete/:id", async (req,res) =>{
-       const id = req.params.id;
-      // const change = req.body;
+      const id = req.params.id;
+      const change = req.body;
     
-      // const note = await PostModel.findOne({ _id: id });
-      // const user_id_in_posts = note.userID;
-      // const user_id_req = req.body.userID;
+      const note = await PostModel.findOne({ _id: id });
+      const user_id_in_posts = note.userID;
+      const user_id_req = req.body.userID;
     
       try {
-        // if (user_id_req !== user_id_in_posts) {
-        //   res.send({ msg: "you are not authorized" });
-        // } else {
-          const posts=await PostModel.findByIdAndDelete(id)
+        if (user_id_req !== user_id_in_posts) {
+          res.send({ msg: "you are not authorized" });
+        } else {
+          const posts=await PostModel.findByIdAndDelete({ _id: id }, change)
          
           res.send("msg delete");
-        // }
+        }
       } catch (error) {
         res.send({ msg: "something went wrong", error: error.message });
         console.log(error)
