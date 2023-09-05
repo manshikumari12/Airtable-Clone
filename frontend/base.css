@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     background-color: rgb(189, 11, 248);
-    /* position: fixed; */
+  
 }
 #parent>div{
     display: flex;
@@ -174,10 +174,35 @@ p{
 }
 #add1{
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 50px;
     height: 20px;
-    /* padding: 30px; */
+   
+    padding-left: 5px;
+    padding-right: 5px;
+    border:none;
+    
+
+
+    background-color: rgb(227, 178, 243);  
+
+    border-radius: 5px;
+ 
+}
+#add1:hover{
+
+    /* border: 1px solid red; */
+    width: 50px;
+    height: 20px;
+   
+    padding-left: 5px;
+    padding-right: 5px;
+    border:none;
+    
+
+
+    background-color: rgb(227, 178, 243);  
+
     border-radius: 5px;
  
 }

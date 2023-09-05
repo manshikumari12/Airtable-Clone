@@ -2,46 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp</title>
+    <title>Login/signup page</title>
+  
     <link rel="stylesheet" href="./login.css">
-    
 </head>
 <body>
-    <div class="form-container">
-        <form id="up">
-          <h2>Sign Up</h2>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="sname" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="semail" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="spassword" name="password" required>
-          </div>
+ 
 
-          <button type="submit">Submit</button> <br>
-          <a href="">Already have an Account</a>
-          <a href="./login.html">login</a>
-     
-        </form>
-        
-      </div>
-      
+<input type="radio" id="cb1" class="chb" name="tab">
+    <input type="radio" id="cb2" class="chb" name="tab">
+
+
+    <div class="cover">
+
+        <div class="info info1">
+
+            <div class="btn">
+
+                <label for="cb1" class="sul">
+                    <p class="su">Sign Up</p>
+                </label>
+
+                <label for="cb2" class="lil">
+                    <p class="li">Log In</p>
+                </label>
+
+            </div>
+        </div>
+        <div class="info info2">
+
+            <div class="login-form fm ">
+                <h3>
+                    Log In
+                </h3>
+                <form id="form_login">
+                    <input type="email" name="uname" id="email" placeholder="E-Mail">
+                    <input type="password" name="uname" id="password" placeholder="Password">
+                    
+                    <input type="submit" value="Log In" class="li-btn butn" id="login">
+               
+
+                </form>
+                <a href="https://dark-gold-cricket-cuff.cyclic.app/auth/google" id="continue"><button class="social-signin google">Sign up with Google+</button></a> 
+            </div>
+
+            <div class="signup-form fm">
+                <h3>
+                    Sign Up
+                </h3>
+                <form  action="" id="form" >
+                    <input type="text"  id="namesignup" placeholder="Name">
+                    <input type="email"  id="emailsignup" placeholder="E-Mail">
+                    <input type="password" id="passwordsign" placeholder="Password">
+                    <input type="submit" name="signup_submit" value="Sign me up"  />
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    
 </body>
 </html>
 <script>
-  document.getElementById("up").addEventListener("submit", (e) => {
+    
+
+
+
+// 
+
+
+
+
+
+
+
+
+document.getElementById("form").addEventListener("submit", (e) => {
      e.preventDefault();
-     let name=document.getElementById("sname").value
+     let name=document.getElementById("namesignup").value
    
-     let email=document.getElementById("semail").value
-     let password=document.getElementById("spassword").value
+     let email=document.getElementById("emailsignup").value
+     let password=document.getElementById("passwordsign").value
        
  
  
@@ -57,7 +102,7 @@
      console.log(obj)
     
  
- fetch("https://easy-tan-bluefish-tam.cyclic.app/user/register",{
+ fetch("https://dark-gold-cricket-cuff.cyclic.app/user/register",{
      method:'POST',
      headers:{
          "Content-type":"application/json"
@@ -71,7 +116,7 @@
  .then((data)=>{
      console.log(data);
      alert("Registration done!")
-     window.location.href = "./login.html";
+    //  window.location.href = "./login.html";
  
  })
  .catch((err)=>{
@@ -81,4 +126,63 @@
  
  })
 
+
+
+
+
+ document.getElementById("form_login").addEventListener("submit", (e) => {
+    e.preventDefault();
+    let email=document.getElementById("emailsignup").value
+    let password=document.getElementById("passwordsign").value
+   
+    let obj={
+        email:email,
+        password:password
+        
+    }
+    console.log(obj)
+   
+
+fetch("https://dark-gold-cricket-cuff.cyclic.app/user/login",{
+    method:'POST',
+    headers:{
+        "Content-type":"application/json"
+    },
+    body:JSON.stringify(obj)
+})
+.then((res)=>{
+    return res.json();
+})
+.then((res)=>{
+    console.log(res.token);
+    console.log(res.userID);
+    console.log(res);
+    localStorage.setItem("token",(res.token));
+
+
+    localStorage.setItem("userID",JSON.stringify(res.userID));
+    alert("login done!")
+    window.location.href = "./afterlogin.html";
+
+
+    
+
+})
+.catch((err)=>{
+    document.getElementById("alertinh").innerText=`Wrong Credential !`;
+    document.getElementById("alertinp").innerText=`Please provide correct user details.`;
+
+    
+console.log(err);
+})
+})
+
+
 </script>
+
+
+
+
+ 
+
+    
