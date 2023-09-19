@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json());
 
 app.use("/", UserRouter);
-app.use("/", PostRouter);
+app.use("/post", PostRouter);
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
