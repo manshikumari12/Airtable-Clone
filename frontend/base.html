@@ -69,10 +69,16 @@
 
     <div id="parent3">
         <div id="child">
+          <input type="text" placeholder="name"id="name">
+          <input type="text" placeholder="Status" id="status">
+          <input type="text" placeholder="Notes" id="notes">
+          <input type="text" placeholder="Assign" id="assign">
+          <!-- <input type="submit" id="submit"> -->
+          <button type="submit" id="add1">ADD</button>
 
-            <div>
-                <p>Name</p>
-                <input type="text" placeholder="name"id="name">
+            <!-- <div>
+       
+                
                 
                 <input type="text"placeholder="name" id="name">
                 <input type="text"placeholder="name">
@@ -83,8 +89,8 @@
 
             </div>
             <div>
-                <p>Notes</p>
-                <input type="text" placeholder="Notes" id="notes">
+       
+              
                 <input type="text" placeholder="Notes">
                 <input type="text" placeholder="Notes">
                 <input type="text" placeholder="Notes">
@@ -92,27 +98,27 @@
 
             </div>
             <div>
-                <p>Assign</p>
-                <input type="text" placeholder="Assign" id="assign">
+            
+               
                 <input type="text" placeholder="Assign">
                 <input type="text" placeholder="Assign">
                 <input type="text" placeholder="Assign">
-                <input type="text" placeholder="Assign">
+                <input type="text" placeholder="Assign"> 
 
             </div>
             <div>
-                <p>Status</p>
-                <input type="text" placeholder="Status" id="status">
-                <input type="text" placeholder="Status">
+
+              
+                 <input type="text" placeholder="Status">
                 <input type="text" placeholder="Status">
                 <input type="text" placeholder="Status">
                 <input type="text" placeholder="Status">
 
             </div>
             <div>
-              <button onclick="onAdd()" id="add1">ADD</button>
-
-            </div>
+       
+              onclick="onAdd()"
+            </div> -->
      
 
             
@@ -144,78 +150,147 @@
     <script>
 
 
+async function fetchData() {
+            try {
+                let res = await fetch(`http://localhost:1111/post/add`);
+                res = await res.json();
+                console.log(res);
+                displayData(res);
+            } catch (err) {
+                console.error(err);
+            }
+        }
 
 
+const addButton = document.getElementById("add1");
 
-const onAdd = () => {
-  const payload = {
-    name: document.getElementById("name").value,
-    notes: document.getElementById("notes").value,
-    assign: document.getElementById("assign").value,
-    status: document.getElementById("status").value
-  };
+        addButton.addEventListener("click", async () => {
+            const name = document.getElementById("name").value;
+            const notes = document.getElementById("notes").value;
+            const assign = document.getElementById("assign").value;
+            const status = document.getElementById("status").value;
 
-  fetch("https://dark-gold-cricket-cuff.cyclic.app/post/add", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-      Authorization: localStorage.getItem("token")
-    },
-    body: JSON.stringify(payload)
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      console.log(res);
-    
-      const newItem = document.createElement("div");
-      newItem.innerHTML = `
-        <div >
-            <h5>Task</h5> 
-          <p>Name: ${res.name}</p>
-          <p>Notes: ${res.notes}</p>
-          <p>Assign: ${res.assign}</p>
-          <p>Status: ${res.status}</p>
-            <button onclick="deletetodo('${res._id}')">delete</button>
-       
-        </div>
-      `;
-  
-      const parent = document.getElementById("items");
-      parent.appendChild(newItem);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+            const obj = {
+                name: name,
+                notes: notes,
+                assign: assign,
+                status: status
+            };
+            console.log(obj)
 
-function deletetodo(_id) {
-    console.log(_id)
-    try {
-        
-        fetch(`http://localhost:1111/delete/${_id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: localStorage.getItem("token")
-          },
-        })
-        .then(res => res.json())
-        .then(res => {
-          console.log(res);
-          const itemToRemove = document.getElementById(_id);
-          itemToRemove.remove();
-        })
-        .catch((err) => {
-          console.log(err);
+            try {
+                const response = await fetch("http://localhost:1111/post/add", {
+                    method: "POST",
+                    headers: {
+                        'Content-type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify(obj)
+                })
+
+              .then((res)=>{
+                return res.json()
+
+              })
+              .then((res)=>{
+                fetchData();
+                console.log(res)
+                alert("sucessfully created")
+              })
+            } catch (error) {
+                console.error({"Error": error.message});
+                alert('Error in Creating Task');
+            }
         });
+
+    
+
+        const items = document.getElementById("items");
+
+        function displayData(data) {
+            items.innerHTML = "";
+            data.forEach(element => {
+                const card = document.createElement("div");
+                card.innerHTML = `
+                    <div>
+                        <h5>Task</h5>
+                        <p>Name: ${element.name}</p>
+                        <p>Notes: ${element.notes}</p>
+                        <p>Assign: ${element.assign}</p>
+                        <p>Status: ${element.status}</p>
+                        <button onclick="deleteTask('${element._id}')">Delete</button>
+                        <button onclick="showEditForm('${element._id}')">Edit</button>
+                    </div>
+                `;
+                items.appendChild(card);
+            });
+        }
+
+     
+        fetchData();
+
+      
+async function deleteTask(id) {
+    try {
+        const response = await fetch(`http://localhost:1111/post/delete/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            },
+        })
+        .then((res)=>{
+                return res.json()
+
+              })
+              .then((res)=>{
+                fetchData();
+                console.log(res)
+                alert("sucessfully delete")
+              })
+
+     
     } catch (error) {
-        console.log(error);
+        console.error({"Error": error.message});
+        alert('Error deleting task');
     }
 }
 
- 
+
+async function showEditForm(id, updatedData) {
+    try {
+        const response = await fetch(`http://localhost:1111/post/update/${id}`, {
+            method: "PATCH", 
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify(updatedData)
+        })
+        .then((res)=>{
+                return res.json()
+
+              })
+              .then((res)=>{
+                fetchData();
+                console.log(res)
+                alert("sucessfully update")
+              })
+    } catch (error) {
+        console.error({"Error": error.message});
+        alert('Error updating task');
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
