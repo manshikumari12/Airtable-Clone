@@ -245,8 +245,7 @@ const addButton = document.getElementById("add1");
                       
                         <p>Assign: ${element.assign}</p>
                         <p>Status: ${element.completed ? 'Completed' : 'Pending'}</p>
-                      
-                <input type="checkbox" ${element.completed ? 'checked' : 'unchecked'} id="completedCheckbox_${element._id}" onchange="updateCompletionStatus('${element._id}')">
+                <input type="checkbox" ${element.completed ? 'checked' : ''} id="completedCheckbox_${element._id}" onchange="updateCompletionStatus('${element._id}')">
                 <button id="updateCompletionStatus" onclick="updateCompletionStatus('${element._id}')">${element.completed ? 'Undo Completion' : 'Mark as Complete'}</button>
                 <button id="delete" onclick="deleteTask('${element._id}')">Delete</button>
                       
