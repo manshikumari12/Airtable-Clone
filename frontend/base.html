@@ -158,7 +158,7 @@
 
 async function fetchData() {
             try {
-                let res = await fetch(`http://localhost:1111/post/add`);
+                let res = await fetch(`https://cute-puce-bluefish-garb.cyclic.app/post/add`);
                 console.log(res);
                 res = await res.json();
                 console.log(res);
@@ -191,7 +191,7 @@ const addButton = document.getElementById("add1");
             console.log(obj)
 
             try {
-                const response = await fetch("http://localhost:1111/post/add", {
+                const response = await fetch("https://cute-puce-bluefish-garb.cyclic.app/post/add", {
                     method: "POST",
                     headers: {
                         'Content-type': 'application/json',
@@ -247,7 +247,7 @@ const addButton = document.getElementById("add1");
 
       async function updateCompletionStatus(taskId) {
     try {
-        const response = await fetch(`http://localhost:1111/post/complete/${taskId}`, {
+        const response = await fetch(`https://cute-puce-bluefish-garb.cyclic.app/post/complete/${taskId}`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json',
@@ -273,7 +273,7 @@ const addButton = document.getElementById("add1");
 
 async function deleteTask(id) {
     try {
-        const response = await fetch(`http://localhost:1111/post/delete/${id}`, {
+        const response = await fetch(`https://cute-puce-bluefish-garb.cyclic.app/post/delete/${id}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json',
