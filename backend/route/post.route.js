@@ -80,6 +80,18 @@ const PostRouter = express.Router();
     });
 
 
+    PostRouter.put('/complete/:id',async(req,res)=>{
+      try {
+        const task = await PostModel.findById(req.params.id);
+        task.completed = true;
+        await task.save();
+        res.json({ message: 'Task marked as complete' });
+      } catch (err) {
+        res.status(500).json({ message: err.message });
+      }
+    });
+
+
 module.exports = {
   PostRouter,
 };

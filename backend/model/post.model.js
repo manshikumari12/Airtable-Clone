@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 
 const postSchema = mongoose.Schema({
- 
-  name : String,
-notes : String,
-assign : String,
-status : String,
-
+  name: { type: String, required: true },
+  title: { type: String, required: true },
+  description: String,
+  // status: { type: String, enum: ['pending', 'completed', 'in-progress'], required: true },
+  dueDate: Date,
+  assign: String,
+  completed: { type: Boolean, default: false },
 });
 
 const PostModel = mongoose.model("post", postSchema);

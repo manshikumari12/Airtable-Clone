@@ -70,8 +70,22 @@
     <div id="parent3">
         <div id="child">
           <input type="text" placeholder="name"id="name">
-          <input type="text" placeholder="Status" id="status">
-          <input type="text" placeholder="Notes" id="notes">
+          <!-- title: { type: String, required: true },
+          description: String,
+          status: { type: String, enum: ['pending', 'completed', 'in-progress'], required: true },
+          dueDate: Date,
+          assign: String,
+          completed: { type: Boolean, default: false }, -->
+          <!-- <input type="text" placeholder="Status" id="status"> -->
+          <input type="text" placeholder="title" id="title">
+          <input type="text" placeholder="description" id="description">
+          <!-- <label for="specialization"></label> -->
+          <!-- <select id="assign">
+              <option value="All">All</option>
+              <option value="completed">completed</option>
+              <option value="not completed">not completed</option>
+              
+          </select> -->
           <input type="text" placeholder="Assign" id="assign">
           <!-- <input type="submit" id="submit"> -->
           <button type="submit" id="add1">ADD</button>
@@ -128,13 +142,17 @@
          
      
         </div>
-        <div id="items">
+        <div class="containerbox">
+            <h1  id="alltask"style="color: black;font-size: 20px;text-align: center;">All the Task</h1>
+            <div id="items">
        
 
 
 
        
+            </div>
         </div>
+     
       
         
     </div> 
@@ -153,11 +171,12 @@
 async function fetchData() {
             try {
                 let res = await fetch(`http://localhost:1111/post/add`);
+                console.log(res);
                 res = await res.json();
                 console.log(res);
                 displayData(res);
             } catch (err) {
-                console.error(err);
+                console.log(err);
             }
         }
 
@@ -166,15 +185,20 @@ const addButton = document.getElementById("add1");
 
         addButton.addEventListener("click", async () => {
             const name = document.getElementById("name").value;
-            const notes = document.getElementById("notes").value;
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+
+            // const notes = document.getElementById("notes").value;
             const assign = document.getElementById("assign").value;
-            const status = document.getElementById("status").value;
+            // const status = document.getElementById("status").value;
 
             const obj = {
                 name: name,
-                notes: notes,
+                title: title, // Fixed typo here
+                description:description,
+                //  notes: notes,
                 assign: assign,
-                status: status
+                // status: status
             };
             console.log(obj)
 
@@ -212,24 +236,81 @@ const addButton = document.getElementById("add1");
             data.forEach(element => {
                 const card = document.createElement("div");
                 card.innerHTML = `
-                    <div>
+                    <div id="taskmanager">
                         <h5>Task</h5>
                         <p>Name: ${element.name}</p>
-                        <p>Notes: ${element.notes}</p>
+                        <p>Title: ${element.title}</p>
+                        <p>Description: ${element.description}</p>
+
+                      
                         <p>Assign: ${element.assign}</p>
-                        <p>Status: ${element.status}</p>
-                        <button onclick="deleteTask('${element._id}')">Delete</button>
-                        <button onclick="showEditForm('${element._id}')">Edit</button>
+                        <p>Status: ${element.completed ? 'Completed' : 'Pending'}</p>
+                      
+                <input type="checkbox" ${element.completed ? 'checked' : 'unchecked'} id="completedCheckbox_${element._id}" onchange="updateCompletionStatus('${element._id}')">
+                <button id="updateCompletionStatus" onclick="updateCompletionStatus('${element._id}')">${element.completed ? 'Undo Completion' : 'Mark as Complete'}</button>
+                <button id="delete" onclick="deleteTask('${element._id}')">Delete</button>
+                      
+                  
                     </div>
                 `;
                 items.appendChild(card);
             });
         }
-
+        // <p>Status: ${element.completed ? 'Completed' : 'Pending'}</p>
+        //         <input type="checkbox" ${element.completed ? 'checked' : ''} id="completedCheckbox_${element._id}" onchange="updateCompletionStatus('${element._id}')">
+              
+        //         <button id="updateCompletionStatus"onclick="updateCompletionStatus('${element._id}')">${element.completed ? 'Undo Completion' : 'Mark as Complete'}</button>
+        //         <button id="delete" onclick="deleteTask('${element._id}')">Delete</button>
      
         fetchData();
 
-      
+      // Update markAsComplete function
+
+      async function updateCompletionStatus(taskId) {
+    try {
+        const response = await fetch(`http://localhost:1111/post/complete/${taskId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            },
+        });
+
+        if (response.ok) {
+            fetchData(); // Refresh tasks after updating completion status
+            alert('Task successfully created');
+        } else {
+            alert('Error updating task status');
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Error updating task status');
+    }
+}
+
+
+
+// async function markAsComplete(taskId) {
+//   const response = await fetch(`http://localhost:1111/post/complete/${taskId}`, { 
+    
+    
+//     method: 'PUT',
+//     headers: {
+//                 'Content-type': 'application/json',
+//                 Authorization: `Bearer ${localStorage.getItem('token')}`
+//             },
+
+// });
+//   if (response.ok) {
+    
+//     fetchData();; // Refresh tasks after marking as complete
+//     console.log(response.ok)
+//                 alert("sucessfully completing")
+//   } else {
+//     alert('Error marking task as complete.');
+//   }
+// }
+
 async function deleteTask(id) {
     try {
         const response = await fetch(`http://localhost:1111/post/delete/${id}`, {
@@ -256,31 +337,6 @@ async function deleteTask(id) {
     }
 }
 
-
-async function showEditForm(id, updatedData) {
-    try {
-        const response = await fetch(`http://localhost:1111/post/update/${id}`, {
-            method: "PATCH", 
-            headers: {
-                'Content-type': 'application/json',
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-            },
-            body: JSON.stringify(updatedData)
-        })
-        .then((res)=>{
-                return res.json()
-
-              })
-              .then((res)=>{
-                fetchData();
-                console.log(res)
-                alert("sucessfully update")
-              })
-    } catch (error) {
-        console.error({"Error": error.message});
-        alert('Error updating task');
-    }
-}
 
 
 

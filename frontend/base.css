@@ -168,8 +168,44 @@ p{
 #box{
   background-color: blanchedalmond;
 }
+.containerbox{
+    /* border: 3px solid red; */
+
+    background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+#alltask{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+#updateCompletionStatus{
+    border: none;
+    padding: 5px ;
+    background-color: green;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+  
+}
+#delete{
+    border: none;
+    padding: 5px ;
+    background-color: crimson;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#taskmanager{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 #items{
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+  background-color: aliceblue;
+border: 1px solid rgba(0, 0, 0, 0.299);
+  margin: 30px;
+
 
 }
 #add1{
