@@ -4,7 +4,7 @@ const postSchema = mongoose.Schema({
   name: { type: String, required: true },
   title: { type: String, required: true },
   description: String,
-  // status: { type: String, enum: ['pending', 'completed', 'in-progress'], required: true },
+
   dueDate: Date,
   assign: String,
   completed: { type: Boolean, default: false },

@@ -70,22 +70,10 @@
     <div id="parent3">
         <div id="child">
           <input type="text" placeholder="name"id="name">
-          <!-- title: { type: String, required: true },
-          description: String,
-          status: { type: String, enum: ['pending', 'completed', 'in-progress'], required: true },
-          dueDate: Date,
-          assign: String,
-          completed: { type: Boolean, default: false }, -->
-          <!-- <input type="text" placeholder="Status" id="status"> -->
+         
           <input type="text" placeholder="title" id="title">
           <input type="text" placeholder="description" id="description">
-          <!-- <label for="specialization"></label> -->
-          <!-- <select id="assign">
-              <option value="All">All</option>
-              <option value="completed">completed</option>
-              <option value="not completed">not completed</option>
-              
-          </select> -->
+      
           <input type="text" placeholder="Assign" id="assign">
           <!-- <input type="submit" id="submit"> -->
           <button type="submit" id="add1">ADD</button>
@@ -188,17 +176,17 @@ const addButton = document.getElementById("add1");
             const title = document.getElementById("title").value;
             const description = document.getElementById("description").value;
 
-            // const notes = document.getElementById("notes").value;
+           
             const assign = document.getElementById("assign").value;
-            // const status = document.getElementById("status").value;
+          
 
             const obj = {
                 name: name,
-                title: title, // Fixed typo here
+                title: title,
                 description:description,
-                //  notes: notes,
+              
                 assign: assign,
-                // status: status
+              
             };
             console.log(obj)
 
@@ -255,15 +243,7 @@ const addButton = document.getElementById("add1");
                 items.appendChild(card);
             });
         }
-        // <p>Status: ${element.completed ? 'Completed' : 'Pending'}</p>
-        //         <input type="checkbox" ${element.completed ? 'checked' : ''} id="completedCheckbox_${element._id}" onchange="updateCompletionStatus('${element._id}')">
-              
-        //         <button id="updateCompletionStatus"onclick="updateCompletionStatus('${element._id}')">${element.completed ? 'Undo Completion' : 'Mark as Complete'}</button>
-        //         <button id="delete" onclick="deleteTask('${element._id}')">Delete</button>
-     
-        fetchData();
 
-      // Update markAsComplete function
 
       async function updateCompletionStatus(taskId) {
     try {
@@ -276,7 +256,7 @@ const addButton = document.getElementById("add1");
         });
 
         if (response.ok) {
-            fetchData(); // Refresh tasks after updating completion status
+            fetchData(); 
             alert('Task successfully created');
         } else {
             alert('Error updating task status');
@@ -289,26 +269,7 @@ const addButton = document.getElementById("add1");
 
 
 
-// async function markAsComplete(taskId) {
-//   const response = await fetch(`http://localhost:1111/post/complete/${taskId}`, { 
-    
-    
-//     method: 'PUT',
-//     headers: {
-//                 'Content-type': 'application/json',
-//                 Authorization: `Bearer ${localStorage.getItem('token')}`
-//             },
 
-// });
-//   if (response.ok) {
-    
-//     fetchData();; // Refresh tasks after marking as complete
-//     console.log(response.ok)
-//                 alert("sucessfully completing")
-//   } else {
-//     alert('Error marking task as complete.');
-//   }
-// }
 
 async function deleteTask(id) {
     try {
