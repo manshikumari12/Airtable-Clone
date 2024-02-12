@@ -19,6 +19,12 @@ serene-mermaid-eeb612.netlify.app/
 # after Login page
 ![Screenshot (988)](https://github.com/manshikumari12/eminent-hands-5039/assets/119393324/9c9bd538-2bd3-468d-83e0-72cd9d197160)
 # Todo page
-![Screenshot (989)](https://github.com/manshikumari12/eminent-hands-5039/assets/119393324/2e677f13-c89d-4bbe-8738-0bc7a09d194f)
+![Screenshot (1005)](https://github.com/manshikumari12/Airtable-Clone/assets/119393324/c447b210-e887-4d76-8461-0f17e0d1ff32)
 # create your Todo
-![Screenshot (990)](https://github.com/manshikumari12/eminent-hands-5039/assets/119393324/76babfae-f2a2-47be-b202-35d87fe6972e)
+
+
+![Screenshot (1002)](https://github.com/manshikumari12/Airtable-Clone/assets/119393324/50fd707c-37b3-44f7-b4fa-45531dbead7a)
+# Updating  your Todo completion stage
+![Screenshot (1003)](https://github.com/manshikumari12/Airtable-Clone/assets/119393324/aff2c847-1865-4059-8235-62d8188cf829)
+# Delete your Todo
+![Screenshot (1004)](https://github.com/manshikumari12/Airtable-Clone/assets/119393324/c97cbf22-9831-4823-8c25-3807fcfd4695)
