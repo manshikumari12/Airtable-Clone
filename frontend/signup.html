@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/signup page</title>
   
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./signup.css">
 </head>
 <body>
  
-
+<!-- 
 <input type="radio" id="cb1" class="chb" name="tab">
     <input type="radio" id="cb2" class="chb" name="tab">
 
@@ -62,6 +62,37 @@
 
         </div>
 
+    </div> -->
+
+    <div class="container">
+        <div class="cont">
+            <div class="login-signup">
+                <div class="heading">
+
+            <img id="logo" src="./workplace.png" alt="">
+            <h1>Airtable</h1>
+                <p>Signup & Login</p>
+                </div>
+                
+                <form action="" id="signupform" >
+                    <input type="text" placeholder="Your Name" id="name">
+                    <input type="email" placeholder="Your email..." id="email">
+                    <input type="password" placeholder="Your password..." id="password">
+                    <!-- <input type="submit"> -->
+                    <button id="signup">Signup</button>
+                    <div class="others">
+                    <!-- <button id="auth">continue with Google</button> -->
+                    <a href="http://localhost:1111/auth/google" class="google">continue with Google</a>
+                    <button id="loginhere">or Login Here</button>
+                    </div>
+                
+                    
+                </form>
+            </div>
+            <div class="image">
+                <img src="https://www.airtable.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fwl95ljfippl8%2F6tEm54xJ9y02UNB6qsBwfb%2Ff797006ef9d262ffd96211c20ceaf20b%2FMarketing_Solution_6B.png%3Ffm%3Dwebp&w=1080&q=100" alt="img">
+            </div>
+        </div>
     </div>
 
     
@@ -72,110 +103,45 @@
 
 
 
-// 
+const loginhere =document.getElementById("loginhere")
+    loginhere.addEventListener("click",()=>{
+        window.location.href="./login.html"
+    })
 
 
-
-
-
-
-
-
-document.getElementById("form").addEventListener("submit", (e) => {
-     e.preventDefault();
-     let name=document.getElementById("namesignup").value
-   
-     let email=document.getElementById("emailsignup").value
-     let password=document.getElementById("passwordsign").value
+const signupform =document.getElementById("signupform")
+    const name = document.getElementById("name")
+const email = document.getElementById("email")
+const password = document.getElementById("password")
+signupform.addEventListener("submit",(e)=>{
+    e.preventDefault()
+    fetch("https://dull-pink-indri-coat.cyclic.app/user/register",{
+        method:"POST",
        
- 
- 
- 
-     let obj={
-         name:name,
-  
-         email:email,
-         password:password,
+        headers:{
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+            name: name.value,
+            email: email.value,
+            password: password.value
+        })
+    }).then((res)=>
+    res.json()
+    ).then((data)=>{
+        console.log(data)
       
-         
-     }
-     console.log(obj)
-    
- 
- fetch("https://cute-puce-bluefish-garb.cyclic.app/user/register",{
-     method:'POST',
-     headers:{
-         "Content-type":"application/json"
-     },
-     body:JSON.stringify(obj)
- })
- .then((res)=>{
- 
-     return res.json();
- })
- .then((data)=>{
-     console.log(data);
-     alert("Registration done!")
-    //  window.location.href = "./login.html";
- 
- })
- .catch((err)=>{
-    
- console.log(err);
- })
- 
- })
+          localStorage.setItem("name", data.name)
+         alert("registertion done")
+         window.location.href= "./login.html"
 
-
-
-
-
- document.getElementById("form_login").addEventListener("submit", (e) => {
-    e.preventDefault();
-    let email=document.getElementById("emailsignup").value
-    let password=document.getElementById("passwordsign").value
-   
-    let obj={
-        email:email,
-        password:password
-        
-    }
-    console.log(obj)
-   
-
-fetch("https://cute-puce-bluefish-garb.cyclic.app/user/login",{
-    method:'POST',
-    headers:{
-        "Content-type":"application/json"
-    },
-    body:JSON.stringify(obj)
-})
-.then((res)=>{
-    return res.json();
-})
-.then((res)=>{
-    console.log(res.token);
-    console.log(res.userID);
-    console.log(res);
-    localStorage.setItem("token",(res.token));
-
-
-    localStorage.setItem("userID",JSON.stringify(res.userID));
-    alert("login done!")
-    window.location.href = "./afterlogin.html";
-
-
-    
+    }).catch((err)=>{
+    console.log(er)
+    })
 
 })
-.catch((err)=>{
-    document.getElementById("alertinh").innerText=`Wrong Credential !`;
-    document.getElementById("alertinp").innerText=`Please provide correct user details.`;
 
-    
-console.log(err);
-})
-})
+
 
 
 </script>

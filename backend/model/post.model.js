@@ -5,7 +5,7 @@ const postSchema = mongoose.Schema({
   title: { type: String, required: true },
   description: String,
 
-  dueDate: Date,
+
   assign: String,
   completed: { type: Boolean, default: false },
 });

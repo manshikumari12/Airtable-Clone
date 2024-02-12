@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="cont">
+            <div class="login-signup">
+                <div class="heading">
+    
+                    <img id="logo" src="./workplace.png" alt="">
+                    <h1>Airtable</h1>
+                    <p>Signup & Login</p>
+                </div>
+    
+                <form action="" id="loginform">
+                    <input type="email" placeholder="Your email..." id="email">
+                    <input type="password" placeholder="Your password..." id="password">
+                    
+                    <button id="login">Login</button>
+                    <div class="others">
+                        <button id="auth">continue with Google</button>
+                        <!-- <a href="http://localhost:1111/auth/google"></a> -->
+                        <button id="sinuphere">or Signup Here</button>
+                    </div>
+    
+    
+                </form>
+            </div>
+            <div class="image">
+                <img src="https://www.airtable.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fwl95ljfippl8%2F6tEm54xJ9y02UNB6qsBwfb%2Ff797006ef9d262ffd96211c20ceaf20b%2FMarketing_Solution_6B.png%3Ffm%3Dwebp&w=1080&q=100"
+                    alt="img">
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    const loginform =document.getElementById("login")
+    const email =document.getElementById("email")
+    const password = document.getElementById("password")
+       const name = localStorage.getItem("name")
+    loginform.addEventListener("click",(e)=>{
+        e.preventDefault()
+        fetch("https://dull-pink-indri-coat.cyclic.app/user/login",{
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify({
+                email:email.value,
+                password:password.value
+            })
+        }).then((res)=>
+        res.json()
+        ).then((data)=>{
+            console.log(data)
+            // console.log(token)
+      
+            
+              
+             
+              localStorage.setItem("name", data.name)
+              localStorage.setItem("email", data.email)
+
+             console.log(data.name)
+            alert("login sucessfully")
+            window.location.href= "./index.html"
+        }).catch((err)=>{
+            console.log(err);
+        })
+    })
+</script>

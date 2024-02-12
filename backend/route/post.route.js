@@ -2,8 +2,7 @@ const express = require("express");
 
 const { PostModel } = require("../model/post.model");
 const PostRouter = express.Router();
-
- PostRouter.get("/add", async (req,res)=>{
+PostRouter.get("/add", async (req,res)=>{
    try {
     const alldata = await PostModel.find()
     res.json(alldata)

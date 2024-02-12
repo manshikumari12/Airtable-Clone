@@ -68,38 +68,150 @@
     }
     .icon-search{
     color: rgb(5, 5, 5);
-    border: 1px solid red;
-    /* margin-top: -70px;
-    margin-left: -20px; */
+ 
+  
     } 
 
     #img2{
+     
         display: flex;
-        width: 3%;
-        height: 3%;
-        padding-right: 30px;
+      gap: 50px;
+      margin-right: 50px;
+        
+       
+    }
+    #img2>button{
+ 
+    width: 60px;
+    height: 30px;
+      margin-top: 20px;
+        background-color: rgb(7, 116, 225);
+        border: none;
+        color: #e5e5e5;
+        border-radius: 5px;
+        font-size: 15px;
     }
     #img2>img{
        
-        width: 60%;
-        height: 80%;
+      width: 30px;
+        height:30px;
         margin-top: 20px;
       
     }
+    #h4username{
+      margin-top: 20px;
+    }
   /* ===========par2================================== */
   #par2{
+ 
+    padding-top: 10px;
+    background-color: aliceblue;
+   
+  
+
+  }
+  .workspace-heading{
     display: flex;
     justify-content: space-around;
-    margin-top: 3%;
+    margin-bottom: 40px;
+    background-color: aliceblue;
+   
+    
   }
-  #par2>div>button{
-    padding: 10px;
-    border-radius: 8px;
+  
+ .data{
+  border-bottom: 1px solid gray;
+  border: 1px solid gray;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding-left: 20px;
+  padding-right: 20px;
+ }
+  .alldata-workspace{
+ 
+ 
+    display: flex;
+    justify-content: space-between;
+    
+  }
+ 
+  .create-workspace{
+  border: 1px solid gray;
+      width: 20%;
+  }
+ .create-workspace {
+  background-color: aliceblue;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   width: 1200px;
+  padding-top: 20px;
+ }
+ #Create-Form{
+  display: block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #70a3f0;
+  
+    color: rgba(0, 0, 0, 0.507);
     border: none;
-    background-color: rgb(7, 116, 225);
-    color: #e5e5e5;
-    font-size: 20px;
-  }
+    border-radius: 5px;
+    cursor: pointer;
+ }
+#Create-Calendar{
+  display: block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #70a3f0;
+    
+    color: rgba(0, 0, 0, 0.507);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ .formButton {
+   display: block;
+   width: 100%;
+   padding: 10px 20px;
+   margin-bottom: 10px;
+  
+   background-color: #70a3f0;
+   color:rgba(0, 0, 0, 0.507);
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+ #allworkspace {
+
+   width: 100%;
+
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   padding: 30px;
+  
+ }
+ .task-card {
+   background-color: #1372df;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   padding: 10px;
+   margin-bottom: 10px;
+   /* margin: auto; */
+   width: 80px;
+   height: 70px;
+   
+ }
+
+ .task-card h5 {
+   margin-top: 0;
+   font-size: 16px;
+   color:#ddd;
+ }
+
+ .task-card p {
+   margin: 5px 0;
+   font-size: 14px;
+    color: #ddd;
+ }
   /* =========================par3============================= */
   #par3{
     /* border: 1px solid red; */
@@ -163,12 +275,13 @@
     display: flex;
     justify-content: space-around;
     /* border: 1px solid red; */
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 
 #footer1{
 margin-top: 70px;
+
 
 }
 
@@ -190,13 +303,15 @@ margin-top: 70px;
     text-align: center;
     justify-content: space-around;
     border: none;
+    text-decoration: none;
 }
 
 #foot {
     display: inline-block;
     position: relative;
     color: #111212;
-    border: none;
+    /* border-top: 1px solid black; */
+    text-decoration: none;
     margin-top:16px;
      }
     

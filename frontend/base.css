@@ -1,245 +1,288 @@
- *{
-    margin: 0px;
-    padding: 0%;
-    }
+ * {
+     margin: 0px;
+     padding: 0%;
+ }
 
 
-#parent{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(189, 11, 248);
-  
-}
-#parent>div{
-    display: flex;
-    display: flex-end;
- 
-}
-#img1{
-    width: 5%;
-    height: 40%;
-    margin-top: 30px;
-    margin-left: 20px;
+ #parent {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     background-color: rgb(189, 11, 248);
 
-}
-h1{
-    color: white; 
-    margin-top: 30px;
-}
+ }
 
-#btn{
-    width:12%;
-    height: 40%;
-    margin-top: 30px;
-    margin-left: 20px;
-    color: white;
-    border-radius: 24px;
-    font-size: 20px;
-    border: none;
-    background-color: rgb(189, 11, 248);
+ #parent>div {
+     display: flex;
+     display: flex-end;
 
+ }
 
-}
+ #img1 {
+     width: 5%;
+     height: 40%;
+     margin-top: 30px;
+     margin-left: 20px;
 
-#btn:hover{
- 
+ }
 
-    background-color: rgb(81, 4, 136);
-}
-/* =======================parent1========================= */
-#parent1{
-    margin-top: 4px;
+ h1 {
+     color: white;
+     margin-top: 30px;
+ }
+
+ #btn {
+     width: 12%;
+     height: 40%;
+     margin-top: 30px;
+     margin-left: 20px;
+     color: white;
+     border-radius: 24px;
+     font-size: 20px;
+     border: none;
+     background-color: rgb(189, 11, 248);
 
 
-    display: flex;
-   
-  
-}
-#parent2{
-    width:30%;
-    height: 760px;
-    background-color: rgb(189, 11, 248);
-    color: white;
-    padding-left: 20px;
+ }
+
+ #btn:hover {
+
+
+     background-color: rgb(81, 4, 136);
+ }
+
+ /* =======================parent1========================= */
+ #parent1 {
+     margin-top: 4px;
+
+
+     display: flex;
+
+
+ }
+
+ #parent2 {
+     width: 30%;
+     height: 760px;
+     background-color: rgb(189, 11, 248);
+     color: white;
+     padding-left: 20px;
+
+
+ }
+
+ h2 {
+     margin-top: 40px;
+     padding-left: 20px;
+ }
+
+ h3 {
+     margin-top: 20px;
+     padding-left: 20px;
+
+ }
+
+ p {
+     padding-left: 20px;
+
+ }
+
+ #parent3 {
+
+     margin-bottom: 20px;
+     background-color: antiquewhite;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     width: 70%;
+     padding-right: 40px;
+
+ }
+
+ #par2 {
+     margin-left: 10px;
+     display: flex;
+     justify-content: space-around;
+     margin-top: 30px;
+     color: white;
+ }
+
+ #par3 {
+     display: flex;
+     justify-content: space-around;
+     margin-top: 30px;
+     margin-left: 10px;
+
+     margin-bottom: 30px;
+     color: white;
+
+
+ }
+
+ #par4 {
+     margin-top: 20px;
+     margin-left: 20px;
+     color: white;
+ }
+
+ #par4 {
+     font-size: 20px;
+     color: white;
+ }
+
+ #par4>input {
+
+     margin-top: 30px;
+     width: 300px;
+     background-color: rgb(135, 8, 177);
+     border: none;
+     color: white;
+
+ }
+
+ #par5 {
+     margin-left: 20px;
+     color: white;
+ }
+
+ #par5>button {
+     background-color: rgb(131, 5, 173);
+     color: white;
+     padding-right: 100px;
+     padding-left: 100px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     margin-top: 20px;
+     border: none;
+
+ }
+
+ #par5>p {
+     margin-top: 30px;
+     font-size: 20px;
+     color: white;
+ }
+
+ /* ===================================== */
+
+
+
+ #child {
+     padding-right: 30px;
+     /* display: flex; */
+     justify-content: space-around;
+     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+     font-size: 30px;
+     padding-left: 20px;
+     padding-bottom: 50px;
+ }
+
+ #child>div>input {
+
+     margin-left: 20px;
+ }
+
+ #box {
+     background-color: blanchedalmond;
+ }
+
+ .containerbox {
+     /* border: 3px solid red; */
+
+     background-color: aliceblue;
+     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+ }
+
+ #alltask {
+     color: black;
+     font-size: 20px;
+     text-align: center;
+ }
+
+ #updateCompletionStatus {
+     border: none;
+     padding: 5px;
+     background-color: green;
+     color: whitesmoke;
+     border-radius: 5px;
+     cursor: pointer;
+
+ }
+
+ #delete {
+     border: none;
+     padding: 5px;
+     background-color: crimson;
+     color: whitesmoke;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ #taskmanager {
+     margin-top: 20px;
+     margin-bottom: 20px;
+ }
+
+ #items {
+
+     background-color: aliceblue;
+     border: 1px solid rgba(0, 0, 0, 0.299);
+     margin: 30px;
+
+
+ }
+
+ #add1 {
+
+     /* border: 1px solid red; */
+     width: 50px;
+     height: 20px;
+
+     padding-left: 5px;
+     padding-right: 5px;
+     border: none;
+
+
+
+     background-color: rgb(227, 178, 243);
+
+     border-radius: 5px;
+
+ }
+
+ #add1:hover {
+
+     /* border: 1px solid red; */
+     width: 50px;
+     height: 20px;
+
+     padding-left: 5px;
+     padding-right: 5px;
+     border: none;
+
+
+
+     background-color: rgb(227, 178, 243);
+
+     border-radius: 5px;
+
+ }
+        .delete-button {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
     
-
-}
-h2{
-    margin-top: 40px;
-    padding-left: 20px;
-}
-h3{
-    margin-top: 20px;
-    padding-left: 20px;
-
-}
-p{
-    padding-left: 20px;
-
-}
-
-#parent3{
+        .update-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
     
-    margin-bottom: 20px;
-    background-color: antiquewhite;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width:70%;
-    padding-right: 40px;
-
-}
-
-#par2{
-    margin-left: 10px;  
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    color: white;  
-}
-
-#par3{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    margin-left: 10px; 
-
-    margin-bottom: 30px;
-    color: white;
-
-   
-}
-
-#par4{
-    margin-top: 20px;
-    margin-left: 20px;
-    color: white;
-}
-#par4{
-    font-size: 20px;
-    color: white;
-}
-#par4>input{
-
-    margin-top: 30px;
-    width: 300px;
-    background-color: rgb(135, 8, 177);
-    border: none;
-    color: white;
-
-}
-#par5{
-    margin-left: 20px;  
-    color: white;
-}
-#par5>button{
-    background-color: rgb(131, 5, 173);  
-    color: white;
-    padding-right: 100px;
-    padding-left: 100px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 20px;
-    border: none;
-    
-}
-#par5>p{
-    margin-top: 30px;
-    font-size: 20px;
-    color: white;
-}
-/* ===================================== */
-
-
-
-#child{
-    padding-right: 30px;
-    /* display: flex; */
-    justify-content: space-around;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    font-size: 30px;
-   padding-left: 20px;
-   padding-bottom: 50px;
-}
-#child>div>input{
-  
-    margin-left: 20px;
-}
-
-#box{
-  background-color: blanchedalmond;
-}
-.containerbox{
-    /* border: 3px solid red; */
-
-    background-color: aliceblue;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-}
-#alltask{
-    color: black;
-    font-size: 20px;
-    text-align: center;
-}
-#updateCompletionStatus{
-    border: none;
-    padding: 5px ;
-    background-color: green;
-    color: whitesmoke;
-    border-radius: 5px;
-    cursor: pointer;
-  
-}
-#delete{
-    border: none;
-    padding: 5px ;
-    background-color: crimson;
-    color: whitesmoke;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#taskmanager{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-#items{
-
-  background-color: aliceblue;
-border: 1px solid rgba(0, 0, 0, 0.299);
-  margin: 30px;
-
-
-}
-#add1{
-
-    /* border: 1px solid red; */
-    width: 50px;
-    height: 20px;
-   
-    padding-left: 5px;
-    padding-right: 5px;
-    border:none;
-    
-
-
-    background-color: rgb(227, 178, 243);  
-
-    border-radius: 5px;
- 
-}
-#add1:hover{
-
-    /* border: 1px solid red; */
-    width: 50px;
-    height: 20px;
-   
-    padding-left: 5px;
-    padding-right: 5px;
-    border:none;
-    
-
-
-    background-color: rgb(227, 178, 243);  
-
-    border-radius: 5px;
- 
-}
-
+        .completed {
+            background-color: green;
+        }

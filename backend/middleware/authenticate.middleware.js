@@ -5,7 +5,8 @@ const authenticate = (req, res, next) => {
   if (token) {
     jwt.verify(token, "mannu", (err, decoded) => {
       if (decoded) {
-        req.body.author = decoded.userId;
+        req.body.userId = decoded.userId;
+        console.log(userId)
         next();
       } else {
         res.send({ msg: "Please login first" });
@@ -15,6 +16,4 @@ const authenticate = (req, res, next) => {
     res.send({ msg: "please login first" });
   }
 };
-module.exports = {
-  authenticate,
-};
+module.exports = { authenticate};

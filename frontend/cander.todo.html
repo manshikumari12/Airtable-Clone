@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Calendar with Todo Timeline</title>
+    <link rel="stylesheet" href="./calender.css">
+</head>
+<style>
+        
+</style>
+
+<body>
+    <div id="parent">
+        <div>
+            <img src="./workplace.png" alt="" id="img1">
+            <h1>Untitled Base</h1>
+            <button id="btn">data</button>
+            <button id="btn">Automatics</button>
+            <button id="btn">Interfaces</button>
+    
+        </div>
+    
+        <div>
+            <button id="btn">Help</button>
+            <button id="btn">Share</button>
+            <img src="./bell.png" alt="" id="img1">
+        </div>
+    </div>
+    
+    <!-- ==============================parent1====================== -->
+    
+    <div id="parent1">
+        <div id="parent2">
+    
+            <h2> Getting started</h2> <br>
+            <h3>Import your work</h3>
+    
+            <p>Get started with Airtable right where you left off, with one of the following tools:</p>
+    
+            <div id="par2">
+                <p>Google Sheets</p>
+                <p>Paste</p>
+    
+    
+            </div>
+    
+            <div id="par3">
+                <p>Excel</p>
+                <p>CSV / Other</p>
+    
+    
+            </div>
+    
+            <div id="par4">
+                <h4>Check out our templates</h4><br>
+                <p>Looking for a head start? Our recommended templates will help build your base quickly.</p>
+                <input type="text" placeholder="Find another template">
+            </div>
+            <div id="par5">
+                <button>Project Tracker</button><br>
+                <button>Content Calendar</button>
+                <p>Need help? Check out our helpful resources. -> </p>
+            </div>
+    
+    
+        </div>
+    
+    
+    
+        <div id="parent3">
+            <div id="child">
+               
+    <div class="calendar">
+        <div class="create-calendar">
+            <h2>Dynamic Calendar with Todo Timeline</h2>
+            <div>
+                <label for="month">Month:</label>
+                <input type="number" id="month" min="1" max="12" value="1">
+                <label for="year">Year:</label>
+                <input type="number" id="year" min="1900" max="2100" value="2022">
+                <button onclick="updateCalendar()">Update Calendar</button>
+            </div>
+            <table id="calendar">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                </tbody>
+            </table>
+            <div>
+                <label for="todo">Todo:</label>
+                <input type="text" id="todo">
+                <label for="time">Time:</label>
+                <input type="time" id="time">
+                <button onclick="addTodo()">Add Todo</button>
+            </div>
+            <div id="todo-timeline">
+                <h3>Todo Timeline</h3>
+                <ul id="todo-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+         </div>
+    
+          
+
+    
+    
+    
+        </div>
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+   
+
+   
+
+</body>
+
+</html>
+<script>
+        let selectedDate = new Date(); 
+
+    
+        function updateCalendar() {
+            const month = document.getElementById('month').value - 1; 
+            const year = document.getElementById('year').value; 
+            const calendarBody = document.getElementById('calendar-body');
+
+       
+            calendarBody.innerHTML = '';
+
+          
+            const firstDay = new Date(year, month, 1).getDay();
+
+           
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+          
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        row.innerHTML += '<td></td>';
+                    } else if (daysInMonth < i * 7 + j - firstDay + 1) {
+                        break;
+                    } else {
+                        const cell = document.createElement('td');
+                        const currentDate = i * 7 + j - firstDay + 1;
+                        cell.textContent = currentDate;
+
+                       
+                        cell.addEventListener('click', () => {
+                            selectedDate = new Date(year, month, currentDate);
+                            console.log(selectedDate);
+                            updateCalendar(); 
+                            fetchTodoTimeline();
+                        });
+
+                        row.appendChild(cell);
+                    }
+                }
+                calendarBody.appendChild(row);
+            }
+        }
+
+    
+        function addTodo() {
+            const todo = document.getElementById('todo').value.trim();
+            const time = document.getElementById('time').value.trim();
+            if (selectedDate && todo && time) {
+                fetch('https://dull-pink-indri-coat.cyclic.app/todo/tododata', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        date: selectedDate.toISOString(),
+                        todo: todo,
+                        time: time
+                    })
+                })
+                    .then(response => {
+                        if (response.ok) {
+                           
+                            fetchTodoTimeline();
+                            alert("Todo added successfully");
+                        } else {
+                            throw new Error('Failed to add todo');
+                        }
+                    })
+                    .catch(error => console.error('Error adding todo:', error));
+            } else {
+                alert('Please select a date and provide todo information');
+            }
+        }
+
+       
+        function fetchTodoTimeline() {
+            if (selectedDate) {
+                fetch(`https://dull-pink-indri-coat.cyclic.app/todo?date=${selectedDate.toISOString()}`, {
+                    method: 'GET'
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch todos');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Todo data received:', data); 
+                      
+                        displayTodoTimeline(data);
+                    })
+                    .catch(error => console.error('Error fetching todo timeline:', error)); // Log error here
+            }
+        }
+
+      
+        function displayTodoTimeline(data) {
+            console.log('Received data:', data); 
+
+            const todoList = document.getElementById('todo-list');
+            todoList.innerHTML = ''; 
+
+           
+            const todosForSelectedDate = data.filter(todo => {
+                const todoDate = new Date(todo.date);
+                return todoDate.toDateString() === selectedDate.toDateString();
+            });
+
+        
+            if (todosForSelectedDate.length > 0) {
+                todosForSelectedDate.forEach(todo => {
+                    const todoItem = document.createElement('li');
+                    todoItem.innerHTML = `
+                <div id="taskmanager">
+                    <h5>Todo Time: ${todo.time}</h5>
+                    <p>Description: ${todo.todo}</p>
+                </div>
+            `;
+                    todoList.appendChild(todoItem);
+                });
+            } else {
+               
+                const noTodosMessage = document.createElement('li');
+                noTodosMessage.textContent = 'No todos for the selected date';
+                todoList.appendChild(noTodosMessage);
+            }
+        }
+
+      
+        updateCalendar();
+    </script> 
+

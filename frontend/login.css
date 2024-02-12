@@ -1,10 +1,10 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  /* border: 1px solid red; */
+
 
 background-color: rgb(226, 201, 249);
 }
@@ -188,7 +188,7 @@ p {
 }
 #continue>button{
   margin: auto;
-  /* border: 1px solid red; */
+
   padding: 10px;
   padding-left: 5px;
   padding-right: 5px;
@@ -201,7 +201,7 @@ p {
 #login{
   background-color: blueviolet;
 }
-/* -------------------------------------------------------------------------------------------- */
+
 @keyframes x {
 
   0%,
@@ -226,7 +226,7 @@ p {
   }
 }
 
-/* -------------------------------------------------------------------------------------------- */
+
 #cb1:checked~.cover>.info1 {
   left: 60%;
   animation: x 1s;
@@ -243,4 +243,110 @@ p {
 
 #cb2:checked~.cover>.info2 {
   left: 40%;
+} */
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+
+  width: 100%;
+  height: 100%;
+}
+
+.cont {
+ 
+  display: flex;
+  justify-content: space-between;
+  padding: 70px;
+}
+
+.login-signup {
+
+  padding: 140px;
+  /* padding-left: 60px; */
+  width: 50%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: -120px;
+}
+#logo{
+  width: 40px;
+}
+
+input[type="email"],
+input[type="password"]{
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  gap: 20px;
+  box-sizing: border-box;
+}
+#login{
+    display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      gap: 20px;
+      box-sizing: border-box;
+      background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+}
+#sinuphere{
+  display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* gap: 20px; */
+    box-sizing: border-box;
+    background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+  
+}
+#auth{
+    display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      /* gap: 20px; */
+      box-sizing: border-box;
+      background-color:crimson;
+        color: #fff;
+        cursor: pointer;
+}
+.others{
+  margin-top: 90px;
+}
+
+
+.image {
+
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 40px;
+  /* Added margin-bottom to create space between image and form */
+}
+
+.image>img {
+ width: 600px;
+  display: block;
+  margin: auto;
+  
 }

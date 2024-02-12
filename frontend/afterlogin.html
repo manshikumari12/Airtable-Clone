@@ -37,52 +37,46 @@
   
     
         <div id="img2">
-            <button >help</button>
-                <img src="./bell.png" alt=""id="btn1">
+            <button  >Help</button>
+            <img src="./bell.png" alt=""id="btn1">
+            <h4 id="h4username"></h4>
         </div>
     </div>
 <!-- ==================================par2============================ -->
     <div id="par2">
+      <div class="workspace-heading">
+       
+        <h2>Create a Workspaces</h2>
         <h2>All Workspaces </h2>
-      <div>
-        <button>Create a Workspaces</button>
+      </div>
+      <div class="data">
+<div class="alldata-workspace">
+
+
+  <div class="create-workspace">
+    <button class="formButton">Create Base</button>
+    <button id="Create-Form">Create Form</button>
+    <button id="Create-Calendar">Create Calendar</button>
+    <button class="formButton">Create Todo</button>
+  </div>
+  <div id="allworkspace">
+  
+  </div>
       </div>
 
-    </div>
-    <!-- =============par3==================================== -->
-    <div id="par3">
-
-        <div id="child">
-            <div>
-                <p>Workspace 1</p>
-                <p>FREE PLAN</p>
-                <p>UPGRADE</p>
-            </div>
-          
-            <div>
-                <button id="btn3">share</button>
-            </div>
-        </div>
+      
+      </div>
        
-  <div id="child1">
-    <p>This workspace is empty</p><br>
-    <p> Get started by creating a new base</p>
-   <a href="./base.html"> <button id="btn4">Create a base</button></a>
-
-  </div>
-
-
-
-
 
     </div>
+ 
 
 
 
 
     <div id="footer">
         <div id="footer1" >
-            <!-- <img src="./workplace.png" alt="" > -->
+          
             <button>Product  </button>
             <button>solutions </button>
             <button>pricing   </button>
@@ -199,3 +193,82 @@
     
 </body>
 </html>
+<script>
+ 
+
+
+
+ 
+
+    const name = localStorage.getItem("name");
+    const email = localStorage.getItem("email");
+    const userDetails = `${name} <br> (${email})`;
+    h4username.innerHTML = userDetails;
+    setTimeout(function () {
+      localStorage.setItem("token", "");
+      localStorage.setItem("name", "");
+      localStorage.setItem("email", "");
+    }, 900000);
+
+  const formButtons = document.getElementsByClassName("formButton");
+
+ 
+  for (let i = 0; i < formButtons.length; i++) {
+    formButtons[i].addEventListener("click", () => {
+      window.location.href = "./base.html"; 
+    });
+  }
+
+  const CreateCalendar = document.getElementById("Create-Calendar")
+  CreateCalendar.addEventListener("click", () => {
+    window.location.href = "./cander.todo.html"
+  })
+
+
+
+    const CreateForm = document.getElementById("Create-Form")
+      CreateForm.addEventListener("click", () => {
+        window.location.href = "./base.form.html"
+      })
+
+  
+
+
+ async function fetchData() {
+    try {
+      const res = await fetch(`https://dull-pink-indri-coat.cyclic.app/post/add`);
+      const data = await res.json();
+      displayData(data); // Call displayData function with fetched data
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  fetchData(); 
+  const items = document.getElementById("allworkspace");
+
+  function displayData(data) {
+    items.innerHTML = "";
+    const taskCounts = {}; // Object to keep track of task counts
+
+    data.forEach(element => {
+      const name = element.name;
+      if (!taskCounts[name]) {
+        taskCounts[name] = 1; 
+      } else {
+        taskCounts[name]++; 
+      }
+
+      const card = document.createElement("div");
+      card.classList.add("task-card");
+      card.innerHTML = `
+            <div id="taskmanager">
+                <h5>Task ${taskCounts[name]}</h5> 
+                <p>Created by: ${element.name}</p>
+            </div>
+        `;
+      items.appendChild(card);
+    });
+  }
+
+</script>

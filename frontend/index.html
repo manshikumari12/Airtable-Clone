@@ -39,7 +39,11 @@
         <div id="right">
             <!-- <button id="btn1">Contact Sales</button> -->
           <a href="./signup.html"> <button id="btn2">Sign up for Free</button></a> 
+        <a href="./afterlogin.html"> <button id="btn2">Workspace</button></a>
+       
            <a href="./login.html"><button id="btn3">Sign in</button></a> 
+            <h4 id="h4username"></h4>
+
         </div>
     </div>
     <!-- =========================body=================== -->
@@ -96,9 +100,7 @@
     <!-- ======================body4================================= -->
     <div id="body4">
         <div id="left3">
-            <!-- <video width="820" height="640" autoplay>
-                <source src="Homepage_Anim_03_TurnInformation_FINAL.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg"> -->
+            
 
         </div>
         <div id="right3">
@@ -278,3 +280,16 @@
     
 </body>
 </html>
+<script>
+   
+    const name = localStorage.getItem("name");
+    const email = localStorage.getItem("email");
+        const userDetails = `${name} (${email})`;
+        h4username.innerHTML = userDetails;
+        setTimeout(function () {
+            localStorage.setItem("token", "");
+            localStorage.setItem("name", "");
+            localStorage.setItem("email", "");
+        }, 900000);
+
+</script>
