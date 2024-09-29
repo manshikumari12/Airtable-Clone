@@ -209,7 +209,7 @@
             const todo = document.getElementById('todo').value.trim();
             const time = document.getElementById('time').value.trim();
             if (selectedDate && todo && time) {
-                fetch('https://dull-pink-indri-coat.cyclic.app/todo/tododata', {
+                fetch('https://backend-deploy-12jp.onrender.com/todo/tododata', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -238,7 +238,7 @@
        
         function fetchTodoTimeline() {
             if (selectedDate) {
-                fetch(`https://dull-pink-indri-coat.cyclic.app/todo?date=${selectedDate.toISOString()}`, {
+                fetch(`https://backend-deploy-12jp.onrender.com/todo?date=${selectedDate.toISOString()}`, {
                     method: 'GET'
                 })
                     .then(response => {

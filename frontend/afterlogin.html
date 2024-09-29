@@ -130,7 +130,7 @@
   
         </div>
   
-        
+      
         <div>
             <h5 style="font-size: 20px;">Popular Extensions</h5><br>
             <div>
@@ -236,7 +236,7 @@
 
  async function fetchData() {
     try {
-      const res = await fetch(`https://dull-pink-indri-coat.cyclic.app/post/add`);
+      const res = await fetch(`https://backend-deploy-12jp.onrender.com/post/add`);
       const data = await res.json();
       displayData(data); // Call displayData function with fetched data
     } catch (err) {

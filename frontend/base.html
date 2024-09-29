@@ -158,7 +158,7 @@
 
     async function fetchData() {
         try {
-            const res = await fetch(`https://dull-pink-indri-coat.cyclic.app/post/add`);
+            const res = await fetch(`https://backend-deploy-12jp.onrender.com/post/add`);
             const data = await res.json();
             displayData(data);
         } catch (err) {
@@ -182,7 +182,7 @@
         };
 
         try {
-            const response = await fetch("https://dull-pink-indri-coat.cyclic.app/post/add", {
+            const response = await fetch("https://backend-deploy-12jp.onrender.com/post/add", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json',
@@ -230,7 +230,7 @@
 
     async function updateCompletionStatus(taskId) {
         try {
-            const response = await fetch(`https://dull-pink-indri-coat.cyclic.app/post/complete/${taskId}`, {
+            const response = await fetch(`https://backend-deploy-12jp.onrender.com/post/complete/${taskId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-type': 'application/json',
@@ -252,7 +252,7 @@
 
     async function deleteTask(id) {
         try {
-            const response = await fetch(`https://dull-pink-indri-coat.cyclic.app/post/delete/${id}`, {
+            const response = await fetch(`https://backend-deploy-12jp.onrender.com/post/delete/${id}`, {
                 method: "DELETE",
                 headers: {
                     'Content-type': 'application/json',
